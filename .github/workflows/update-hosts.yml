@@ -1,0 +1,85 @@
+name: Update Pi-hole Hosts File
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+env:
+  SOURCE_REPO: "redlib-org/redlib-instances" 
+  JSON_FILE_PATH: "instances.json"
+  OUTPUT_FILE: "redlib-hosts.txt"
+
+jobs:
+  update-hosts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Fetch JSON and create hosts file
+      run: |
+        
+        echo "Fetching JSON file from $SOURCE_REPO..."
+        
+        curl -s "https://raw.githubusercontent.com/$SOURCE_REPO/main/$JSON_FILE_PATH" > temp.json
+        
+        if [ ! -s temp.json ]; then
+          echo "Error: Failed to download JSON file or file is empty"
+          exit 1
+        fi
+        
+        if ! jq empty temp.json 2>/dev/null; then
+          echo "Error: Invalid JSON format"
+          exit 1
+        fi
+        
+        echo "# Pi-hole hosts file generated from $SOURCE_REPO" > $OUTPUT_FILE
+        echo "# Generated on $(date)" >> $OUTPUT_FILE
+        echo "# Format: 0.0.0.0 domain.com" >> $OUTPUT_FILE
+        echo "" >> $OUTPUT_FILE
+        
+        jq -r '.instances[]?.url // empty' temp.json | while IFS= read -r url; do
+          if [ -n "$url" ]; then
+            clean_url=$(echo "$url" | sed -e 's|^https\?://||' -e 's|/$||')
+            echo "0.0.0.0 $clean_url" >> $OUTPUT_FILE
+          fi
+        done
+        
+        if [ $(wc -l < $OUTPUT_FILE) -le 4 ]; then
+          echo "Warning: No URLs found in instances array"
+        else
+          echo "Successfully processed $(( $(wc -l < $OUTPUT_FILE) - 4 )) URLs"
+        fi
+        
+        rm temp.json
+    
+    - name: Check for changes
+      id: check-changes
+      run: |
+        if git diff --quiet HEAD -- $OUTPUT_FILE; then
+          echo "changed=false" >> $GITHUB_OUTPUT
+          echo "No changes detected in hosts file"
+        else
+          echo "changed=true" >> $GITHUB_OUTPUT
+          echo "Changes detected in hosts file"
+        fi
+    
+    - name: Commit and push changes
+      if: steps.check-changes.outputs.changed == 'true'
+      run: |
+        git add $OUTPUT_FILE
+        git commit -m "Update Pi-hole hosts file"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: No changes
+      if: steps.check-changes.outputs.changed == 'false'
+      run: |
+        echo "No changes to commit. Hosts file is already up to date."
