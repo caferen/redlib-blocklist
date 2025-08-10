@@ -1,5 +1,8 @@
 name: Update Pi-hole Hosts File
 
+permissions:
+  contents: write
+
 on:
   schedule:
     - cron: '0 2 * * *'
