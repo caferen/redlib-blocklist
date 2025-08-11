@@ -42,11 +42,6 @@ jobs:
           exit 1
         fi
         
-        echo "# Pi-hole hosts file generated from $SOURCE_REPO" > $OUTPUT_FILE
-        echo "# Generated on $(date)" >> $OUTPUT_FILE
-        echo "# Format: 0.0.0.0 domain.com" >> $OUTPUT_FILE
-        echo "" >> $OUTPUT_FILE
-        
         jq -r '.instances[]?.url // empty' temp.json | while IFS= read -r url; do
           if [ -n "$url" ]; then
             clean_url=$(echo "$url" | sed -e 's|^https\?://||' -e 's|/$||')
