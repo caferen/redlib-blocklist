@@ -41,6 +41,8 @@ jobs:
           echo "Error: Invalid JSON format"
           exit 1
         fi
+
+        > $OUTPUT_FILE
         
         jq -r '.instances[]?.url // empty' temp.json | while IFS= read -r url; do
           if [ -n "$url" ]; then
