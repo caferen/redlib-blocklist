@@ -1,18 +1,19 @@
 # Pi-hole hosts file generated from redlib-org/redlib-instances
-# Generated on Sun Aug 10 11:32:59 UTC 2025
+# Generated on Mon Aug 11 03:26:51 UTC 2025
 # Format: 0.0.0.0 domain.com
 
-0.0.0.0 safereddit.com
 0.0.0.0 eu.safereddit.com
 0.0.0.0 l.opnxng.com
+0.0.0.0 redlib.catsarch.com
 0.0.0.0 redlib.perennialte.ch
-0.0.0.0 redlib.tux.pizza
 0.0.0.0 libreddit.privacydev.net
 0.0.0.0 rl.bloat.cat
+0.0.0.0 red.artemislena.eu
 0.0.0.0 redlib.privacyredirect.com
 0.0.0.0 reddit.nerdvpn.de
 0.0.0.0 redlib.4o1x5.dev
 0.0.0.0 reddit.adminforge.de
+0.0.0.0 redlib.thebunny.zone
 0.0.0.0 rl.blitzw.in
 0.0.0.0 reddit.rtrace.io
 0.0.0.0 lr.ptr.moe
