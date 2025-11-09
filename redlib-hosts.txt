@@ -1,7 +1,10 @@
 0.0.0.0 redlib.catsarch.com
 0.0.0.0 redlib.perennialte.ch
+0.0.0.0 redlib.ducks.party
+0.0.0.0 red.artemislena.eu
 0.0.0.0 redlib.nadeko.net
 0.0.0.0 redlib.4o1x5.dev
+0.0.0.0 redlib.frontendfriendly.xyz
 0.0.0.0 redlib.reallyaweso.me
 0.0.0.0 reddit.adminforge.de
 0.0.0.0 reddit.rtrace.io
