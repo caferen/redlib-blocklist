@@ -1,3 +1,5 @@
+0.0.0.0 l.opnxng.com
 0.0.0.0 redlib.catsarch.com
 0.0.0.0 redlib.cow.rip
+0.0.0.0 redlib.privacyredirect.com
 0.0.0.0 lr.ptr.moe
