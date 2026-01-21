@@ -1,10 +1,8 @@
-0.0.0.0 l.opnxng.com
 0.0.0.0 redlib.catsarch.com
 0.0.0.0 redlib.perennialte.ch
 0.0.0.0 redlib.r4fo.com
-0.0.0.0 redlib.ducks.party
 0.0.0.0 red.artemislena.eu
 0.0.0.0 redlib.cow.rip
-0.0.0.0 redlib.nadeko.net
 0.0.0.0 redlib.4o1x5.dev
 0.0.0.0 redlib.orangenet.cc
+0.0.0.0 redlib.privadency.com
