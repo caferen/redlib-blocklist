@@ -1,6 +1,6 @@
 0.0.0.0 safereddit.com
 0.0.0.0 redlib.catsarch.com
+0.0.0.0 redlib.r4fo.com
 0.0.0.0 redlib.privacyredirect.com
 0.0.0.0 redlib.nadeko.net
-0.0.0.0 reddit.rtrace.io
 0.0.0.0 redlib.privadency.com
