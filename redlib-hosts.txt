@@ -4,5 +4,4 @@
 0.0.0.0 redlib.cow.rip
 0.0.0.0 redlib.privacyredirect.com
 0.0.0.0 redlib.nadeko.net
-0.0.0.0 reddit.rtrace.io
 0.0.0.0 redlib.privadency.com
