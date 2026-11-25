@@ -1,11 +1,8 @@
-0.0.0.0 redlib.catsarch.com
-0.0.0.0 redlib.freedit.eu
-0.0.0.0 redlib.r4fo.com
+0.0.0.0 safereddit.com
 0.0.0.0 redlib.cow.rip
 0.0.0.0 redlib.nadeko.net
-0.0.0.0 redlib.privadency.com
+0.0.0.0 redlib.reallyaweso.me
 0.0.0.0 redlib.thepixora.com
 0.0.0.0 redlib.hbubli.cc
 0.0.0.0 redlib.utilibre.org
-0.0.0.0 reddit.jeremyh.xyz
 0.0.0.0 redlib.zanity.net
